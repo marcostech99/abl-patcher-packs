@@ -1,62 +1,61 @@
-# abletonPatcher - What is this?
+Aqui está o README traduzido e formatado:
 
-This is an open-source implementation of the R2R patch and `R2RLIVE.dll` of Ableton Live, written in Python.
+---
 
-Like `R2RLIVE.dll`, this script uses Team R2R's signing key only.
+# abletonPatcher
 
-## Disclaimer
+## Compatibilidade
 
-This script is not the result of reverse engineering Ableton Live, and the output of this script **will not** circumvent the protection on an **unmodified** copy of Ableton Live.
+- Funciona no **Windows** e **Linux** (com Wine)
+- Deve funcionar para todas as versões do Ableton Live acima da Live 9 (9, 10, 11, 12)
+- Todas as edições funcionam também (Lite, Intro, Standard, Suite)
 
-## Download Ableton Installers
+## Guia de Início Rápido
 
-You can download the Ableton Installers directly from Ableton's servers. I made a small HTML file to make this easier for you.
+1. **Encontre seu HWID do Ableton:** Abra o Ableton e clique em "Authorize Ableton offline". Você verá seu HWID na tela.
 
-[StaticAbletonDownloader](https://devilapi.github.io/StaticAbletonDownloader)
+2. **Clique com o botão direito** em `quickstart.cmd` e selecione **"Executar como administrador"**.
 
-## Compatibility
+3. Quando o script perguntar se você quer editar o arquivo de configuração, digite `y` (sim).
 
-- Works on Windows and Linux (with wine)
-- Should work for all Ableton Live Versions above Live 9 (9,10,11,12)
-- Every Edition works too (Lite, Intro, Standard, Suite)
+4. Você só precisará alterar as **3 primeiras variáveis**. Insira seu HWID, a versão do Live e a edição e **salve o arquivo (Ctrl+S)**.
 
-## Quickstart Guide
+5. O script agora perguntará se você quer executar o patcher. Digite `y` (sim).
 
-1. Find your Ableton HWID: Open Ableton, and press "Authorize Ableton offline". You will find your HWID.
-2. Right click `quickstart.cmd` and select `Run as Administrator`.
-3. When the script asks you if you want to edit the config file, select `y`.
-4. You will only need to change the top 3 variables. Enter your HWID, the Live version and edition and **save the file (Ctrl+S)**
-5. The script will now ask you if you want to run the patcher. Select `y`.
-6. Select the installation of Ableton you want to patch
-7. The script will now ask if you want to open the folder, where `Authorize.auz` is located. Select `y`
-5. Run Ableton, drag the `Authorize.auz` file into the Activation window
+6. **Selecione a instalação** do Ableton que você quer patchar.
 
-#### Hooray, you're done!
+7. O script perguntará se você quer abrir a pasta onde o arquivo `Authorize.auz` está localizado. Digite `y` (sim).
 
-## Command Line Arguments
-| Parameter | Type | Description | Default/Config |
-|-----------|------|-------------|----------------|
-| `--undo` | flag | Revert the patch (swap signkeys and skip authorization file) | Uses config.json values |
-| `--file_path` | string | Path to Ableton Live executable or "auto" for auto-detection | config.json: `file_path` |
-| `--old_signkey` | string | Old signkey (hex string) | config.json: `old_signkey` |
-| `--new_signkey` | string | New signkey (hex string) | config.json: `new_signkey` |
-| `--hwid` | string | Hardware ID (24 hex chars or 6 groups of 4) | config.json: `hwid` |
-| `--edition` | string | Ableton edition (Lite, Intro, Standard, Suite) | config.json: `edition` |
-| `--version` | integer | Ableton version (e.g., 12) | config.json: `version` |
-| `--authorize_file_output` | string | Output path for Authorize.auz or "auto" | config.json: `authorize_file_output` |
-| `--config_file` | string | Path, where the config file is located. | `config.json` |
-| `--help` | flag | Show help message | N/A |
+8. **Execute o Ableton** e arraste o arquivo `Authorize.auz` para dentro da janela de ativação.
 
-## Troubleshooting
-#### I don't have administrator on my PC.
-1. Copy your Ableton executable to the same folder where patch_ableton.py is located.
-2. In config.json, change your file path from "auto" to the new file path of your Ableton exe.
-3. Retry
-4. It should work now. Then copy your Ableton exe back to the folder you got it from.
+#### Hooray! 🎉 Você terminou!
 
-## Support
-I do offer support on Discord (https://discord.gg/akswvyUk) and on Reddit (@devilAPIOnReddit)
+---
 
-## Credits
+## Argumentos de Linha de Comando
 
-The Implementation of the KeyGen was made by [rufoa](https://github.com/rufoa). Go leave a star on his Git page!#
+| Parâmetro | Tipo | Descrição | Padrão/Config |
+|-----------|------|-----------|---------------|
+| `--undo` | flag | Reverte o patch (troca as signkeys de volta e pula o arquivo de autorização) | Usa os valores do config.json |
+| `--file_path` | string | Caminho para o executável do Ableton Live ou "auto" para detecção automática | config.json: `file_path` |
+| `--old_signkey` | string | Signkey antiga (string hexadecimal) | config.json: `old_signkey` |
+| `--new_signkey` | string | Nova signkey (string hexadecimal) | config.json: `new_signkey` |
+| `--hwid` | string | Hardware ID (24 caracteres hexadecimais ou 6 grupos de 4) | config.json: `hwid` |
+| `--edition` | string | Edição do Ableton (Lite, Intro, Standard, Suite) | config.json: `edition` |
+| `--version` | inteiro | Versão do Ableton (ex: 12) | config.json: `version` |
+| `--authorize_file_output` | string | Caminho de saída para o Authorize.auz ou "auto" | config.json: `authorize_file_output` |
+| `--config_file` | string | Caminho onde o arquivo de configuração está localizado | `config.json` |
+| `--help` | flag | Mostra a mensagem de ajuda | N/A |
+
+---
+
+## Solução de Problemas
+
+#### Não tenho administrador no meu PC
+
+1. Copie o executável do seu Ableton para a **mesma pasta** onde o `patch_ableton.py` está localizado.
+2. No `config.json`, altere o `file_path` de `"auto"` para o novo caminho do seu executável do Ableton.
+3. Tente novamente.
+4. Deve funcionar agora. Depois, copie o executável do Ableton de volta para a pasta original de onde você o pegou.
+
+---

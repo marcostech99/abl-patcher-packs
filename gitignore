@@ -1,0 +1,6 @@
+# Ignorar os packs baixados — arquivos binários grandes, não versionar
+packs_output/
+
+# Alternativa caso alguém baixe .alp em outro lugar
+*.alp
+Authorize.auz
